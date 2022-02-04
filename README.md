@@ -13,3 +13,11 @@ conditions;
 <mark>The conditions are used to filter the rows returned from the SELECT statement.</mark>
  i.e. **SELECT** name,choice **FROM** table **WHERE** (name="David" **AND** choice="Red");
 
+**ORDER BY** is used to sort rows based on a column value, in either ascending or descending order. Syntax Example: SELECT column1,column2 FROM table_name ORDER BY column1 ASC/
+DESC.
+
+**LIMIT** command allows us to limit the number of rows returned for a query.
+
+**BETWEEN** operator can be used to match a value against a range of values. Syntax Example: BETWEEN low AND high.
+
+**IN** operator creates a condition to check if a variable is included is a list of known names. Syntax Example: SELECT color FROM table WHERE color IN ('red':'blue':'green');
