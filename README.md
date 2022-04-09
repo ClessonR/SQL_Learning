@@ -70,3 +70,20 @@ OR payment.payment_id is null
 
 **Union** operator is used to combine the result-set of two or more SELECT statements.
 
+## Data Types ##
+
+- Examples 
+  - TIME = Contains only time
+  - DATE = Contains only date
+  - TIMESTAMP = Contains date and time 
+  - TIMESTAMPZ = Contains date, time and timezone
+
+- Functions
+    - TIMEZONE
+    - NOW
+    - TIMEOFDAY
+    - CURRENT_TIME
+    - CURRENT_DATE
+    - EXTRACT() - Allows the user to extract or obtain a sub-component of a date value.
+    - AGE() - Calculates and returns the current age given a timestamp.
+    - TO_CHAR() - General function to convert data types to text.
