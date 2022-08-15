@@ -37,7 +37,6 @@ DESC.
     1. Example: **Get all Mission Impossible films:**
         > WHERE title LIKE 'Mission Impossible _'
 
-
 ## Aggregate Functions ##
 
 The main idea behind an **aggregate function** is to take multiple inputs and return a single output.
@@ -148,3 +147,14 @@ OR payment.payment_id is null
     END;
   - Syntax Example2: SELECT a, CASE WHEN a = 1 THEN 'one WHEN a = 2 THEN 'two' ELSE 'other' END FROM table;
   - **CASE expression** Syntax Example: CASE expression WHEN value1 THEN result1 WHEN value2 THEN result2 ELSE some_other_result END;
+
+- **COALESCE** function accepts an unlimited number of arguments. It returns the first argument that is not null. If all arguments are null, the COALESCE function will return NULL.
+  - Syntax Example: SELECT COALESCE(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z);
+  - Syntax Example: SELECT item,(price - COALESCE( discount,0)) AS final FROM table;
+
+- **CAST** operator let's you convert from one data type into another.
+  - Syntax Example: SELECT CAST(column AS data_type);
+
+- **NULLIF** function takes in 2 inputs and returns NULL if both are equal, otherwise it returns the first argumento passed.
+  - Syntax Example: NULLIF(arg1, arg2)
+  - Syntax Example: SELECT NULLIF(a,b) FROM table;

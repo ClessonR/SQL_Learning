@@ -72,10 +72,66 @@ CREATE TABLE teachers(
 
 -- ? Conditional Expressions and Procedures
 
+-- General CASE
 SELECT customer_id,
 CASE 
     WHEN (customer_id <= 100) THEN 'Premium'
     WHEN (customer_id <= 200) THEN 'Plus'
     ELSE 'Default'
-END
+END AS customer_class
 FROM customer
+
+
+-- CASE expression
+SELECT customer_id,
+CASE customer_id, 
+    WHEN 2 THEN 'Winner'
+    WHEN 5 THEN 'Second Place'
+    ELSE 'Normal'
+END AS 'Raffle Results'
+FROM customer
+
+SELECT 
+SUM(CASE rental_rate 
+    WHEN 0.99 THEN 1
+    ELSE 0 as 'Rental Rate'
+END)
+FROM film
+
+SELECT 
+SUM(CASE rental_rate 
+    WHEN 0.99 THEN 1
+    ELSE 0 
+END) AS bargains,
+SUM(CASE rental_rate 
+    WHEN 2.99 THEN 1
+    ELSE 0
+END) AS regular
+FROM film
+
+SELECT 
+SUM(CASE rating 
+    WHEN 'R' THEN 1
+    ELSE 0 
+END) AS r,
+SUM(CASE rating 
+    WHEN 'PG' THEN 1
+    ELSE 0 
+END) AS pg,
+SUM(CASE rating 
+    WHEN 'PG-13' THEN 1
+    ELSE 0 
+END) AS pg13
+FROM film
+
+SELECT(
+    SUM(CASE WHEN department = 'A' then 1 else 0 end) / 
+    SUM(case when department ='B' then 1 else 0)
+)
+
+-- Doing the following will make the query not divide by zero, consequently preventing an error
+SELECT(
+    SUM(CASE WHEN department = 'A' then 1 else 0 end) / 
+    NULLIF(SUM(case when department ='B' then 1 else 0 end),0)
+) AS department_ratio
+from depts
